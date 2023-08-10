@@ -128,14 +128,12 @@ class _ReactionsBoxItemState extends State<ReactionsBoxItem>
                     duration: const Duration(milliseconds: 250),
                     child: Column(
                       children: [
-                        AnimatedOpacity(
-                          duration: const Duration(milliseconds: 50),
-                          opacity: isHovered ? 1 : 0,
-                          child: FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: widget.reaction.title,
-                          ),
-                        ),
+                        isHovered
+                            ? FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: widget.reaction.title,
+                              )
+                            : const SizedBox.shrink(),
                         child!,
                       ],
                     ),
